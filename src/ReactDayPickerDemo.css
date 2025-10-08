@@ -1,0 +1,130 @@
+.rdp-demo {
+  width: 100%;
+}
+
+.rdp-section {
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.rdp-section h2 {
+  font-size: 1.5rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.rdp-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.rdp-footer {
+  background: #f5f7fa;
+  padding: 15px 20px;
+  border-radius: 8px;
+  color: #333;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+.rdp-benefits {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  padding: 30px;
+  border-radius: 12px;
+  margin-top: 40px;
+}
+
+.rdp-benefits h3 {
+  font-size: 1.3rem;
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.rdp-benefits ul {
+  list-style: none;
+  padding: 0;
+}
+
+.rdp-benefits li {
+  padding: 10px 0;
+  font-size: 1.05rem;
+  color: #1b5e20;
+}
+
+/* Custom styling for react-day-picker */
+.rdp {
+  --rdp-accent-color: #667eea;
+  --rdp-background-color: #667eea;
+  --rdp-accent-background-color: #667eea;
+  --rdp-outline: 2px solid #667eea;
+  --rdp-outline-selected: 2px solid #667eea;
+}
+
+.rdp-day_button:hover:not([disabled]) {
+  background-color: #e8ecfb;
+}
+
+.rdp-day_button:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Custom navigation button styles */
+.rdp-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.rdp-nav_button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.rdp-nav_button:hover {
+  background: #f5f5f5;
+  border-color: #667eea;
+}
+
+.rdp-nav_button:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+  background: #e8ecfb;
+}
+
+.rdp-nav_button:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.rdp-nav_button:active {
+  background: #d0d8f7;
+}
+
+/* Range selection styling */
+.rdp-range_start,
+.rdp-range_end {
+  background-color: #667eea !important;
+  color: white !important;
+}
+
+.rdp-range_middle {
+  background-color: #e8ecfb !important;
+}
+
+@media (max-width: 768px) {
+  .rdp-wrapper {
+    overflow-x: auto;
+  }
+}
+
