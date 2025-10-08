@@ -1,0 +1,149 @@
+.app {
+  width: 100%;
+}
+
+.container {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.demo-section {
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.demo-section:last-of-type {
+  border-bottom: none;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.picker-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.selected-info {
+  background: #f5f7fa;
+  padding: 15px 20px;
+  border-radius: 8px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.features {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #667eea;
+}
+
+.features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features li {
+  padding: 10px 0;
+  font-size: 1.05rem;
+  color: #555;
+}
+
+/* React Dates customization */
+.DateInput_input {
+  font-size: 16px;
+  padding: 10px 12px;
+}
+
+.SingleDatePickerInput,
+.DateRangePickerInput {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.CalendarDay__selected,
+.CalendarDay__selected:active,
+.CalendarDay__selected:hover {
+  background: #667eea;
+  border: 1px double #667eea;
+}
+
+.CalendarDay__selected_span {
+  background: #b8c5f5;
+  border: 1px double #a3b3f0;
+}
+
+.CalendarDay__hovered_span,
+.CalendarDay__hovered_span:hover {
+  background: #d0d8f7;
+  border: 1px double #a3b3f0;
+}
+
+.DayPickerKeyboardShortcuts_buttonReset {
+  display: none;
+}
+
+/* Improve keyboard navigation for month navigation buttons */
+.DayPickerNavigation_button {
+  outline-offset: 2px;
+}
+
+.DayPickerNavigation_button:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.DayPickerNavigation_button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.DayPickerNavigation_button:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .picker-wrapper {
+    overflow-x: auto;
+  }
+}
+
