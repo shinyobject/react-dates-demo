@@ -3,6 +3,7 @@ import moment from 'moment'
 import { SingleDatePicker, DateRangePicker } from 'react-dates'
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
+import { ReactDayPickerDemo } from './ReactDayPickerDemo'
 import './App.css'
 
 function App() {
@@ -114,11 +115,92 @@ function App() {
     }
   }, [])
 
+  const [activeTab, setActiveTab] = useState('comparison')
+
   return (
     <div className="app">
       <div className="container">
-        <h1>React Dates Demo</h1>
-        <p className="subtitle">Beautiful date pickers for React</p>
+        <h1>Date Picker Library Comparison</h1>
+        <p className="subtitle">react-dates vs react-day-picker</p>
+
+        <div className="tabs">
+          <button 
+            className={`tab ${activeTab === 'comparison' ? 'active' : ''}`}
+            onClick={() => setActiveTab('comparison')}
+          >
+            🆚 Side-by-Side Comparison
+          </button>
+          <button 
+            className={`tab ${activeTab === 'react-dates' ? 'active' : ''}`}
+            onClick={() => setActiveTab('react-dates')}
+          >
+            📅 react-dates (Old)
+          </button>
+          <button 
+            className={`tab ${activeTab === 'react-day-picker' ? 'active' : ''}`}
+            onClick={() => setActiveTab('react-day-picker')}
+          >
+            ✨ react-day-picker (New)
+          </button>
+        </div>
+
+        {activeTab === 'comparison' && (
+          <div className="comparison-view">
+            <div className="comparison-intro">
+              <h2>Try the Keyboard Navigation Test</h2>
+              <ol>
+                <li>Open a calendar below</li>
+                <li><strong>Tab</strong> to focus on the next/previous month button</li>
+                <li>Press <strong>Spacebar</strong></li>
+                <li>Observe what happens to focus and page scroll</li>
+              </ol>
+            </div>
+
+            <div className="comparison-grid">
+              <div className="comparison-column old">
+                <h2>❌ react-dates (Current Issue)</h2>
+                <div className="issue-badge">
+                  <strong>Problem:</strong> Focus moves to calendar, page scrolls
+                </div>
+                <div className="demo-section">
+                  <h3>Single Date Picker</h3>
+                  <div className="picker-wrapper">
+                    <SingleDatePicker
+                      date={singleDate}
+                      onDateChange={(date) => setSingleDate(date)}
+                      focused={singleFocused}
+                      onFocusChange={({ focused }) => setSingleFocused(focused)}
+                      id="single_date_picker"
+                      numberOfMonths={1}
+                      placeholder="Select a date"
+                      displayFormat="MMMM D, YYYY"
+                      showClearDate={true}
+                      reopenPickerOnClearDate={false}
+                      keepFocusOnInput={false}
+                      noBorder={false}
+                    />
+                  </div>
+                  {singleDate && (
+                    <div className="selected-info">
+                      <strong>Selected:</strong> {singleDate.format('MMMM D, YYYY')}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="comparison-column new">
+                <h2>✅ react-day-picker (Solution)</h2>
+                <div className="success-badge">
+                  <strong>Fixed:</strong> Focus stays on button, no scroll!
+                </div>
+                <ReactDayPickerDemo />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'react-dates' && (
+          <div className="single-view">
 
         <div className="demo-section">
           <h2>Single Date Picker</h2>
@@ -178,17 +260,37 @@ function App() {
           )}
         </div>
 
-        <div className="features">
-          <h3>Features</h3>
-          <ul>
-            <li>📅 Beautiful, accessible date pickers</li>
-            <li>🎨 Highly customizable styling</li>
-            <li>📱 Mobile-friendly and responsive</li>
-            <li>⌨️ Keyboard navigation support</li>
-            <li>🌍 Internationalization support via Moment.js</li>
-            <li>♿ Screen reader accessible</li>
-          </ul>
-        </div>
+            <div className="features">
+              <h3>Features</h3>
+              <ul>
+                <li>📅 Beautiful, accessible date pickers</li>
+                <li>🎨 Highly customizable styling</li>
+                <li>📱 Mobile-friendly and responsive</li>
+                <li>⌨️ Keyboard navigation support</li>
+                <li>🌍 Internationalization support via Moment.js</li>
+                <li>♿ Screen reader accessible</li>
+              </ul>
+            </div>
+
+            <div className="warning-box">
+              <h3>⚠️ Known Issues with react-dates</h3>
+              <ul>
+                <li>❌ Focus moves to calendar grid after month navigation</li>
+                <li>❌ Spacebar scrolls the page</li>
+                <li>❌ Not compatible with React 18 (peer dependency warnings)</li>
+                <li>❌ No longer maintained (last update 2+ years ago)</li>
+                <li>❌ Uses deprecated React lifecycle methods</li>
+                <li>❌ Large bundle size (167KB)</li>
+              </ul>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'react-day-picker' && (
+          <div className="single-view">
+            <ReactDayPickerDemo />
+          </div>
+        )}
       </div>
     </div>
   )
